@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+}
+
+group = "fridaycucumber"
+version = "1.0"
+
+wrapper.gradleVersion = '5.5.1'
+def cucumberVersion = '4.7.4'
+def junitVersion = '5.5.0'
+
+sourceCompatibility = 1.8
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation "io.cucumber:cucumber-java:${cucumberVersion}"
+    testImplementation "io.cucumber:cucumber-junit:${cucumberVersion}"
+
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
+    testRuntimeOnly "org.junit.vintage:junit-vintage-engine:${junitVersion}"
+}
+
+test {
+    useJUnitPlatform()
+}
